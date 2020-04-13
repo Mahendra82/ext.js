@@ -1,0 +1,30 @@
+Ext.application({
+    name : 'Test1',
+
+    launch : function() {
+        Ext.create('Ext.form.Panel', {
+            title: 'Sample Form',
+            id: 'myform',
+            renderTo: Ext.getBody(),
+            width: 500,
+            height: 200,
+
+            items: [{
+                xtype: 'textarea',
+                id: 'myText',
+                width: '100%',
+                anchor: '100% 95%',
+                hideLabel: true,
+                value: 'Some text'
+            }],
+            buttons: [{
+                text: 'Sample button',
+                cls: 'green-button',
+                
+                handler: function() {
+                    Ext.getCmp('myText').setValue(this.text + ' Clicked!');
+                }
+            }]
+        });
+    }
+});
